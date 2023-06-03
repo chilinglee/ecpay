@@ -87,7 +87,6 @@ router.post('/payResult', async (req, res, next) => {
         {
           $set: {
             payStatus: 'failed',
-            paidAt: new Date(PaymentDate).toISOString(),
           },
         },
         { new: true, runValidators: true }
@@ -135,7 +134,7 @@ function generateCheckValue(params) {
   //第五步，轉成 SHA256
   result = SHA256(result).toString();
 
-  //最後，轉成大小寫
+  //最後，轉成大寫
   return result.toUpperCase();
 }
 
